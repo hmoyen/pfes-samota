@@ -218,7 +218,7 @@ for i, bench in enumerate(BENCHMARKS):
     ax_h.set_title(f"{bench}: violation-pattern diversity of failures")
     ax_h.grid(axis="y", alpha=0.3)
 
-fig.suptitle("Diversity of Failures — all 5 algorithms, per-run distribution (30 runs each)", fontsize=13)
+fig.suptitle("Diversity of Failures — all 6 algorithms, per-run distribution (30 runs each)", fontsize=13)
 fig.tight_layout()
 out_png = os.path.join(OUT_DIR, "diversity_all_boxplots.png")
 fig.savefig(out_png, dpi=150, bbox_inches="tight")
@@ -247,7 +247,7 @@ for i, bench in enumerate(BENCHMARKS):
     ax.set_title(bench)
     ax.legend(fontsize=7, ncol=2)
     ax.grid(axis="y", alpha=0.3)
-fig2.suptitle("Per-requirement violation rate among failures (all 5 algorithms)", fontsize=13)
+fig2.suptitle("Per-requirement violation rate among failures (all 6 algorithms)", fontsize=13)
 fig2.tight_layout()
 out_png2 = os.path.join(OUT_DIR, "diversity_all_violation_rates.png")
 fig2.savefig(out_png2, dpi=150, bbox_inches="tight")

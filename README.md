@@ -133,6 +133,30 @@ python3.11 plot_coverage_boxplot.py
 python3.11 build_final_report_pdf.py
 ```
 
+## Results
+
+Key figures from the 30-run experiments (see `results/` for the full CSVs and
+`FINAL_REPORT.md` for the full write-up):
+
+![AUCC boxplots](results/aucc_all/aucc_boxplot.png)
+
+Normalized Area Under Coverage Curve per algorithm/benchmark — higher means an
+algorithm covers reachable requirements earlier and more consistently.
+
+![Coverage curves](results/aucc_all/coverage_curves.png)
+
+Fraction of reachable requirements violated over the course of a run (mean ±
+std, 30 runs), normalized to % of each run's own budget.
+
+![Diversity boxplots](results/diversity_all/diversity_all_boxplots.png)
+
+Parameter-space and violation-pattern (Hamming) diversity of the failing test
+cases each algorithm finds.
+
+![Violation rates](results/diversity_all/diversity_all_violation_rates.png)
+
+Which requirements each algorithm's failures tend to violate, per benchmark.
+
 ## Testing
 
 ```bash

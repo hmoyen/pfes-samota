@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Full failure-diversity analysis across all 5 algorithms and all 3 benchmarks,
+Full failure-diversity analysis across all 6 algorithms and all 3 benchmarks,
 using real per-evaluation trace data (X_all_evaluations_*/Reqs_all_evaluations_*).
 
 Metrics (same formulas as online-step-experiments/ADAS1/analyze_failure_diversity.py):
@@ -12,8 +12,8 @@ Metrics (same formulas as online-step-experiments/ADAS1/analyze_failure_diversit
     scores via F_all_evaluations_*; others only log pass/fail).
 
 Data sources:
-  - PF:                 results/{BENCH}/PF/out/           (X_all_evaluations_NSGA3_{run}.csv)
-  - FF/MERLOT/SAMOTA*:   results_diversity/{BENCH}/{ALGO}/out/
+  - PF:                  results/{BENCH}/PF/out/           (X_all_evaluations_NSGA3_{run}.csv)
+  - FF/MERLOT/SAMOTA*/RS: results_diversity/{BENCH}/{ALGO}/out/
 
 Usage:
   python3.11 analyze_diversity_all.py
@@ -28,11 +28,11 @@ from sklearn.preprocessing import MinMaxScaler
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 BENCHMARKS = ["ADAS1", "ADAS2", "RR"]
-ALGOS = ["PF", "FF", "MERLOT", "SAMOTA", "SAMOTA_SW"]
-PREFIX = {"PF": "NSGA3", "FF": "FOC", "MERLOT": "MORLOT", "SAMOTA": "SAMOTA", "SAMOTA_SW": "SAMOTA"}
-DATA_DIR = {"PF": "results", "FF": "results_diversity", "MERLOT": "results_diversity",
+ALGOS = ["PF", "RS", "FF", "MERLOT", "SAMOTA", "SAMOTA_SW"]
+PREFIX = {"PF": "NSGA3", "RS": "RANDOM", "FF": "FOC", "MERLOT": "MORLOT", "SAMOTA": "SAMOTA", "SAMOTA_SW": "SAMOTA"}
+DATA_DIR = {"PF": "results", "RS": "results_diversity", "FF": "results_diversity", "MERLOT": "results_diversity",
             "SAMOTA": "results_diversity", "SAMOTA_SW": "results_diversity"}
-COLOR = {"PF": "#4C72B0", "FF": "#55A868", "MERLOT": "#C44E52", "SAMOTA": "#8172B2", "SAMOTA_SW": "#CCB974"}
+COLOR = {"PF": "#4C72B0", "RS": "#DD8452", "FF": "#55A868", "MERLOT": "#C44E52", "SAMOTA": "#8172B2", "SAMOTA_SW": "#CCB974"}
 OUT_DIR = os.path.join(BASE, "results", "diversity_all")
 os.makedirs(OUT_DIR, exist_ok=True)
 

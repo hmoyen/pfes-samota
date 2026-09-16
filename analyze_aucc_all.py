@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-Area-Under-Coverage-Curve (AUCC) analysis across all 5 algorithms and all 3
+Area-Under-Coverage-Curve (AUCC) analysis across all 6 algorithms and all 3
 benchmarks, using real per-evaluation trace data (Reqs_all_evaluations_*).
-RS excluded (no per-eval traces in this dataset, same caveat as diversity/§4).
 
 For each run: build a step curve of "# reachable requirements violated at
 least once so far" over evaluation index, normalize eval index to % of that
@@ -12,8 +11,8 @@ for that benchmark. normalized_aucc = mean of that curve over the whole run
 (1.0 = covered everything immediately, 0.0 = never covered anything).
 
 Data sources: same as analyze_diversity_all.py
-  - PF:                 results/{BENCH}/PF/out/
-  - FF/MERLOT/SAMOTA*:   results_diversity/{BENCH}/{ALGO}/out/
+  - PF:                  results/{BENCH}/PF/out/
+  - FF/MERLOT/SAMOTA*/RS: results_diversity/{BENCH}/{ALGO}/out/
 
 Usage:
   python3.11 analyze_aucc_all.py
@@ -25,13 +24,13 @@ import matplotlib.pyplot as plt
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 BENCHMARKS = ["ADAS1", "ADAS2", "RR"]
-ALGOS = ["PF", "FF", "MERLOT", "SAMOTA", "SAMOTA_SW"]
-LABEL = {"PF": "PF\n(NSGA3)", "FF": "FF\n(Focused)", "MERLOT": "MERLOT\n(RL)",
+ALGOS = ["PF", "RS", "FF", "MERLOT", "SAMOTA", "SAMOTA_SW"]
+LABEL = {"PF": "PF\n(NSGA3)", "RS": "RS\n(Random)", "FF": "FF\n(Focused)", "MERLOT": "MERLOT\n(RL)",
          "SAMOTA": "SAMOTA", "SAMOTA_SW": "SAMOTA\n+SW"}
-PREFIX = {"PF": "NSGA3", "FF": "FOC", "MERLOT": "MORLOT", "SAMOTA": "SAMOTA", "SAMOTA_SW": "SAMOTA"}
-DATA_DIR = {"PF": "results", "FF": "results_diversity", "MERLOT": "results_diversity",
+PREFIX = {"PF": "NSGA3", "RS": "RANDOM", "FF": "FOC", "MERLOT": "MORLOT", "SAMOTA": "SAMOTA", "SAMOTA_SW": "SAMOTA"}
+DATA_DIR = {"PF": "results", "RS": "results_diversity", "FF": "results_diversity", "MERLOT": "results_diversity",
             "SAMOTA": "results_diversity", "SAMOTA_SW": "results_diversity"}
-COLOR = {"PF": "#4C72B0", "FF": "#55A868", "MERLOT": "#C44E52", "SAMOTA": "#8172B2", "SAMOTA_SW": "#CCB974"}
+COLOR = {"PF": "#4C72B0", "RS": "#DD8452", "FF": "#55A868", "MERLOT": "#C44E52", "SAMOTA": "#8172B2", "SAMOTA_SW": "#CCB974"}
 OUT_DIR = os.path.join(BASE, "results", "aucc_all")
 os.makedirs(OUT_DIR, exist_ok=True)
 

@@ -37,11 +37,13 @@ poetry.lock
 *~
 .DS_Store
 
-# Experiment outputs
+# Local run artifacts from executing the code directly (not the curated
+# results/ and results_diversity/ data backing the paper, which is tracked)
 *.log
-results_*/
-out/
-*.csv
+online-step-experiments/*/out/
+online-step-experiments/*/out_rev/
+online-step-experiments/*/[0-9]*/
+pfes_samota_baseline/
 test_*/
 
 # Temporary files

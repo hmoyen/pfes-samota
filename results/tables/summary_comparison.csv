@@ -1,0 +1,19 @@
+benchmark,algorithm,algorithm_display,n_runs,mean_violations,median_violations,std_violations,total_violations,mean_coverage_pct,mean_best_score,mean_elapsed_min,mean_efficiency,mean_R0,mean_R1,mean_R2,mw_p_value,significant_vs_samota,a_ab_samota_vs_algo,effect_size,direction,mean_R3,mean_R4,mean_R5
+ADAS1,PF,PF (NSGA3),30,34.97,31.0,10.44,1049,42.2,-0.0031,,,34.63,0.17,0.17,0.0,True,0.021,large,baseline better,,,
+ADAS1,RS,RS (Random),30,5.4,5.0,2.36,162,42.2,-0.00195,,,5.13,0.13,0.13,0.0,True,0.959,large,SAMOTA better,,,
+ADAS1,FF,FF (FOC),30,18.77,19.5,8.76,563,45.6,-0.00258,,,18.4,0.17,0.2,0.0249,True,0.331,medium,baseline better,,,
+ADAS1,MERLOT,MERLOT,30,19.03,16.5,11.73,571,75.6,-0.0026,,,12.77,3.13,3.13,0.105,False,0.378,small,baseline better,,,
+ADAS1,SAMOTA,SAMOTA,30,14.03,13.0,5.16,421,100.0,-0.00274,103.2,0.0226,8.83,2.6,2.6,,,,,,,,
+ADAS1,SAMOTA_SW,SAMOTA+SW,30,15.73,14.5,4.75,472,100.0,-0.00306,80.0,0.024,9.13,3.3,3.3,0.1502,False,0.392,small,baseline better,,,
+ADAS2,PF,PF (NSGA3),30,139.0,134.0,36.9,4170,72.8,-0.00364,,,32.23,0.2,0.23,0.0,True,0.024,large,baseline better,6.13,47.2,53.0
+ADAS2,RS,RS (Random),30,25.1,23.0,7.28,753,68.9,-0.0025,,,5.47,0.13,0.13,0.0,True,0.989,large,SAMOTA better,1.77,7.93,9.67
+ADAS2,FF,FF (FOC),30,44.47,41.0,24.1,1334,66.1,-0.00254,,,9.4,0.07,0.1,0.0,True,0.838,large,SAMOTA better,3.23,14.23,17.43
+ADAS2,MERLOT,MERLOT,30,81.53,72.0,47.55,2446,85.6,-0.00497,,,11.73,3.97,3.97,0.7958,False,0.52,negligible,SAMOTA better,13.67,17.27,30.93
+ADAS2,SAMOTA,SAMOTA,30,74.6,76.5,17.64,2238,92.2,-0.00427,103.2,0.0526,11.1,1.33,1.33,,,,,,13.93,16.6,30.3
+ADAS2,SAMOTA_SW,SAMOTA+SW,30,79.77,77.0,19.0,2393,100.0,-0.00472,85.3,0.0552,11.23,2.97,2.97,0.4033,False,0.437,small,baseline better,14.0,17.37,31.23
+RR,PF,PF (NSGA3),30,16.87,15.0,9.51,506,41.1,-0.00862,,,7.63,0.77,8.4,0.0011,True,0.254,large,baseline better,0.07,0.0,0.0
+RR,RS,RS (Random),30,0.2,0.0,0.6,6,3.3,0.00945,,,0.1,0.0,0.1,0.0,True,0.998,large,SAMOTA better,0.0,0.0,0.0
+RR,FF,FF (FOC),30,3.87,3.0,3.67,116,31.7,-0.00735,,,1.1,0.8,1.87,0.0,True,0.819,large,SAMOTA better,0.1,0.0,0.0
+RR,MERLOT,MERLOT,30,9.03,5.0,10.29,271,31.1,-0.00868,,,4.37,0.1,4.47,0.1296,False,0.614,small,SAMOTA better,0.1,0.0,0.0
+RR,SAMOTA,SAMOTA,30,9.67,8.0,5.76,290,50.6,-0.01325,39.1,0.0067,3.43,1.3,4.7,,,,,,0.23,0.0,0.0
+RR,SAMOTA_SW,SAMOTA+SW,30,11.97,10.0,6.93,359,50.6,-0.01549,40.9,0.008,4.6,1.3,5.87,0.1787,False,0.399,small,baseline better,0.2,0.0,0.0
